@@ -7,6 +7,8 @@ import Button from '../../components/Button/Button';
 import { FaSearch } from 'react-icons/fa';
 import HospitalCard from '../../components/HospitalCard/HospitalCard';
 import FAQ from '../../components/FAQ/FAQ';
+import Download from '../../components/Download/Download';
+import Footer from '../../components/Footer/Footer';
 
 function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -47,8 +49,10 @@ function Search() {
     }
   }
   useEffect(() => {
-    setState(searchParams.get("state"));
-    setCity(searchParams.get("city"));
+    if(searchParams.get("state"))
+      setState(searchParams.get("state"));
+    if(searchParams.get("state"))
+      setCity(searchParams.get("city"));
     fetchStates()
   }, [])
   useEffect(() => {
@@ -102,11 +106,24 @@ function Search() {
               return <HospitalCard name={hospital["Hospital Name"]} address={hospital["Address"]} city={city} state={state} zipcode={hospital["ZIP Code"]} rating={hospital["Hospital overall rating"]} key={hospital["Provider ID"]}/>
             })}
           </Grid>
+          <Grid item xs={12} md={4}>
+            <img style={{
+              width:"100%"
+            }} src='https://s3-alpha-sig.figma.com/img/1fe6/7356/75bf68ac8b03b8adc3d5939338d5479e?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WU409ZIYNGeIAosfoCm6eV0im9Mj0wFviK3X~ZYf7YylRi~HloJarZTe~eobazPdBiQ1t7~tsPiCoosB9-uhK5J5MauLOKrbog6anhWijj5YHjQbKjfwJjvUFrY4FphrvOZRTRXbQjoHGQ5QCIMui-LRyR~D1IseuKSEjHysRVCtjHuIk95i-yVWZGIjAXHotOIQov-CRntdb6Z8V14oERg~TXgv~UkYLs94x1izs9XWpryFujThmQMnqNgY3A1WVZwMaEn-xxaV3-06BrLlf2DF5ZHIuQfCMXEnXLKD~SEYQBRQgIZyTG-YSDSI0TioHHA4~04wtt6Ulu2ynTDlaA__' alt='add'/>
+          </Grid>
         </Grid>
       </div>
-      <div className='container'>
-        <FAQ/>
+      <div style={{backgroundColor:"white"}}>
+        <div className='container'>
+          <FAQ/>
+        </div>
       </div>
+      <div className='bkg'>
+        <div className='container'>
+          <Download/>
+        </div>
+      </div>
+      <Footer/>
     </div>
   )
 }

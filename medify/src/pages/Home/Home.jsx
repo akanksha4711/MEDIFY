@@ -10,6 +10,8 @@ import PatientCare from '../../components/PatientCare/PatientCare';
 import Blogs from '../../components/Blogs/Blogs';
 import Families from '../../components/Families/Families';
 import FAQ from '../../components/FAQ/FAQ';
+import Download from '../../components/Download/Download';
+import Footer from '../../components/Footer/Footer';
 import "./Home.css"
 
 function Home() {
@@ -66,6 +68,12 @@ function Home() {
       <div className='container'>
         <FAQ/>
       </div>
+      <div className='bkg'>
+        <div className='container'>
+          <Download/>
+        </div>
+      </div>
+      <Footer/>
     </div>
   )
 }

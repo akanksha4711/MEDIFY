@@ -1,13 +1,9 @@
-import { Stack } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import Button from '../Button/Button'
-import BasicTabs from '../BasicTab/BasicTab'
-import { json } from 'react-router-dom'
+import React from 'react';
+import { Stack } from '@mui/material';
 
-function HospitalCard({name,address,city,state,zipcode,rating}) {
-  const [bookings, setBookings] = useState([])
-  const [showBookings, setShowBookings] = useState(false);
-  console.log(bookings)
+function FinalHospitalCard({name,city,state,rating,time}) {
+    const date = time.split(" ")[0];
+    const time1 = time.split(" ")[1];
   return (
     <Stack direction={'column'} sx={{
         backgroundColor:"white",
@@ -38,28 +34,23 @@ function HospitalCard({name,address,city,state,zipcode,rating}) {
         </div>
         <div>{rating}</div>
       </Stack>
-      <Stack direction={'column'} justifyContent={'end'} alignItems="center" spacing={2}>
-        <div style={{color:"#01A400",fontSize:"16px",fontWeight:"700"}}>Available today</div>
-        <Button handleClick={() => {
-          if(showBookings){
-            if(!localStorage.getItem("bookings") && bookings){
-              localStorage.setItem("bookings",JSON.stringify({bookings}))
-            } else {
-              const bookingsObj = JSON.parse(localStorage.getItem("bookings"))
-              bookings.forEach(bk => {
-                if(!bookingsObj.bookings.find(bk1 => (bk1.name === bk.name && bk1.time === bk.time)))
-                  bookingsObj.bookings.push(bk)
-              });
-              localStorage.setItem("bookings",JSON.stringify({bookings:bookingsObj.bookings}))
-            }
-          }
-            setShowBookings(!showBookings);
-        }}>{showBookings?"CLICK HERE TO BOOK NOW":"Book FREE Center Visit"}</Button>
+      <Stack direction={'row'} justifyContent={'start'} alignItems="center" spacing={2}>
+        <div style={{
+            border:"1px solid #14BEF0",
+            borderRadius:"5px",
+            color:"#14BEF0",
+            padding:"5px 10px"
+        }}>{time1}</div>
+        <div style={{
+            border:"1px solid #02A401",
+            borderRadius:"5px",
+            color:"#02A401",
+            padding:"5px 10px"
+        }}>{date}</div>
       </Stack>
     </Stack>
-    {showBookings && <BasicTabs name={name} address={address} city={city} state={state} zipcode={zipcode} rating={rating} bookings={bookings} setBookings={setBookings}/>}
     </Stack>
   )
 }
 
-export default HospitalCard
+export default FinalHospitalCard

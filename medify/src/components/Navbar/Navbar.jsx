@@ -17,7 +17,7 @@ function Navbar() {
         <Link className='link' to="/">Surgeries</Link>
         <Link className='link' to="/">Software for Provider</Link>
         <Link className='link' to="/">Facilities</Link>
-        <Button size="medium">My Bookings</Button>
+        <Link to='/mybookings'><Button size="medium">My Bookings</Button></Link>
       </Stack>
       <FaBars className='hamburger' onClick={() => {
         const menu = document.getElementById("menu")

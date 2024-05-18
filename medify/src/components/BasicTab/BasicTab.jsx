@@ -40,9 +40,8 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs({name,address,city,state,zipcode,rating}) {
+export default function BasicTabs({name,address,city,state,zipcode,rating,bookings,setBookings}) {
   const [value, setValue] = React.useState(0);
-  const [bookings, setBookings] = React.useState([])
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -61,7 +60,6 @@ export default function BasicTabs({name,address,city,state,zipcode,rating}) {
     const year = currentDate.getFullYear()
     return `${month}/${day}/${year}`
   }
-  console.log(bookings)
 
   const TabContent = ({num}) => {
     return (

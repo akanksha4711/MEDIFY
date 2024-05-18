@@ -9,7 +9,8 @@ function Button({handleClick,children}) {
         color: 'white',
         padding: "10px 20px",
         fontFamily: "Poppins",
-        fontWeight: "500"
+        fontWeight: "500",
+        cursor:"pointer"
     }}>
       {children}
     </button>
