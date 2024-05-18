@@ -1,0 +1,6 @@
+.bkg{
+    background-image: linear-gradient(to right, #e7f0ff, #f4f8ff);
+}
+.container {
+    margin: 0 10vh;
+}

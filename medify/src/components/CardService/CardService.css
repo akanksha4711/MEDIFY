@@ -1,0 +1,8 @@
+.card-service-selected{
+    border: 2px solid #2AA7FF;
+    background-color: rgba(42, 167, 255, 0.08);
+}
+.card-service-unselected {
+    background-color: #FAFBFE;
+    border: none;
+}
