@@ -2,7 +2,7 @@ import { Stack } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import Button from '../Button/Button'
 import BasicTabs from '../BasicTab/BasicTab'
-import { json } from 'react-router-dom'
+import { FaThumbsUp } from "react-icons/fa";
 
 function HospitalCard({name,address,city,state,zipcode,rating}) {
   const [bookings, setBookings] = useState([])
@@ -36,7 +36,14 @@ function HospitalCard({name,address,city,state,zipcode,rating}) {
             <span style={{textDecoration:"line-through",color:"#787887",fontWeight:"400"}}>$500</span>&nbsp;
             <span style={{color:"#414146",fontWeight:"400"}}>Consultation fee at clinic</span>
         </div>
-        <div>{rating}</div>
+        <div style={{
+          backgroundColor:"#02A401",
+          width:"5vh",
+          color:"white",
+          textAlign:"center",
+          borderRadius:"5px",
+          padding:"4px"
+        }}><FaThumbsUp></FaThumbsUp>{rating}</div>
       </Stack>
       <Stack direction={'column'} justifyContent={'end'} alignItems="center" spacing={2}>
         <div style={{color:"#01A400",fontSize:"16px",fontWeight:"700"}}>Available today</div>

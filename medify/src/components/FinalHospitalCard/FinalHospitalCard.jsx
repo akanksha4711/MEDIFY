@@ -1,5 +1,6 @@
 import React from 'react';
 import { Stack } from '@mui/material';
+import { FaThumbsUp } from "react-icons/fa";
 
 function FinalHospitalCard({name,city,state,rating,time}) {
     const date = time.split(" ")[0];
@@ -32,7 +33,14 @@ function FinalHospitalCard({name,city,state,rating,time}) {
             <span style={{textDecoration:"line-through",color:"#787887",fontWeight:"400"}}>$500</span>&nbsp;
             <span style={{color:"#414146",fontWeight:"400"}}>Consultation fee at clinic</span>
         </div>
-        <div>{rating}</div>
+        <div style={{
+          backgroundColor:"#02A401",
+          width:"5vh",
+          color:"white",
+          textAlign:"center",
+          borderRadius:"5px",
+          padding:"4px"
+        }}><FaThumbsUp></FaThumbsUp>{rating}</div>
       </Stack>
       <Stack direction={'row'} justifyContent={'start'} alignItems="center" spacing={2}>
         <div style={{
